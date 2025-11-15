@@ -1,0 +1,91 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base-like Landing</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <div class="logo-box">B</div>
+        Base-like
+      </div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#docs">Docs</a>
+        <button>Sign In</button>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div>
+        <h1>Build communities, run thriving memberships</h1>
+        <p>
+          A simple, delightful platform to host paid communities —
+          subscriptions, events, and 1:1 experiences all in one place.
+        </p>
+
+        <div class="email-box">
+          <input id="email" type="email" placeholder="Your email" />
+          <button onclick="join()">Get early access</button>
+        </div>
+
+        <p id="status" class="status"></p>
+      </div>
+
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="mock-line"></div>
+          <div class="grid-box">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item big"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="features" id="features">
+      <h2 class="features-title">
+        Everything you need to run a great membership
+      </h2>
+      <div class="features-grid">
+        <div class="feature-box">
+          <b>Subscriptions & Payments</b><br />Flexible plans, coupons, and
+          recurring billing.
+        </div>
+        <div class="feature-box">
+          <b>Events & Tickets</b><br />Schedule events and sell seats.
+        </div>
+        <div class="feature-box">
+          <b>Private Messaging</b><br />DMs and group chat for members.
+        </div>
+        <div class="feature-box">
+          <b>Analytics</b><br />Growth, revenue, retention insights.
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div>
+        <h3>Ready to start?</h3>
+        <p>Create a free account and launch your community in minutes.</p>
+      </div>
+      <button class="cta-btn">Create Account</button>
+    </section>
+
+    <footer>
+      <div class="footer-left"></div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak - CiptaPrint</title>
+
+    <!-- Google Icon Font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="kontak.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="logo">FIREZWIR</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="layanan.html">Produk</a></li>
+          <li><a href="tentang.html">Tentang</a></li>
+          <li><a href="kontak.html" class="active">Kontak</a></li>
+        </ul>
+      </nav>
+      <button class="btn-pesan">Pesan Sekarang</button>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <section class="kontak-container">
+        <!-- FORM KONTAK -->
+        <div class="form-kontak">
+          <h2>Kirim Pesan</h2>
+          <form action="#" method="post">
+            <label for="nama">Nama Lengkap</label>
+            <input
+              type="text"
+              id="nama"
+              name="nama"
+              placeholder="Masukkan nama Anda"
+              required
+            />
+
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Masukkan email Anda"
+              required
+            />
+
+            <label for="pesan">Pesan</label>
+            <textarea
+              id="pesan"
+              name="pesan"
+              rows="5"
+              placeholder="Tulis pesan Anda..."
+              required
+            ></textarea>
+
+            <button type="submit" class="btn-kirim">Kirim Pesan</button>
+          </form>
+        </div>
+
+        <!-- INFO KONTAK -->
+        <div class="info-kontak">
+          <h2>Informasi Kontak</h2>
+          <p>
+            <span class="material-symbols-outlined">location_on</span>
+            Jl. Cipta Kreatif No. 12, Bandung, Indonesia
+          </p>
+          <p>
+            <span class="material-symbols-outlined">call</span>
+            +62 812-3456-7890
+          </p>
+          <p>
+            <span class="material-symbols-outlined">mail</span>
+            support@firezwir.com
+          </p>
+
+          <h3>Ikuti Kami</h3>
+          <div class="sosmed">
+            <a href="#"
+              ><span class="material-symbols-outlined">public</span></a
+            >
+            <a href="#"
+              ><span class="material-symbols-outlined">camera_alt</span></a
+            >
+            <a href="#"><span class="material-symbols-outlined">chat</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2025 FIREZWIR | CiptaPrint Digital Printing Indonesia</p>
+    </footer>
+  </body>
+</html>

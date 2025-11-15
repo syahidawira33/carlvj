@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layanan - CiptaPrint</title>
+    <style>
+      /* ===== RESET & GLOBAL ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        color: #003366;
+        background: linear-gradient(135deg, #f0f7ff, #dceeff);
+        overflow-x: hidden;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(to right, #007bff, #00aaff);
+        padding: 15px 50px;
+        color: white;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      nav ul li a:hover,
+      nav ul li a.aktif {
+        color: rgb(201, 201, 201);
+      }
+
+      .btn-pesan {
+        background: white;
+        color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .btn-pesan:hover {
+        background: #e1f2ff;
+      }
+
+      /* ===== HERO SECTION ===== */
+      .hero-layanan {
+        position: relative;
+        height: 60vh;
+        background: url("https://images.unsplash.com/photo-1521747116042-5a810fda9664?auto=format&fit=crop&w=1400&q=80")
+          center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 80, 150, 0.5);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+      }
+
+      .hero-content p {
+        font-size: 1.1em;
+      }
+
+      /* ===== DAFTAR LAYANAN ===== */
+      .daftar-layanan {
+        padding: 100px 50px;
+        text-align: center;
+      }
+
+      .daftar-layanan h2 {
+        font-size: 2em;
+        margin-bottom: 50px;
+        color: #003366;
+      }
+
+      .layanan-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .layanan-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px 25px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transition: 0.4s ease;
+        cursor: pointer;
+      }
+
+      .layanan-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .layanan-card img {
+        width: 80px;
+        margin-bottom: 15px;
+      }
+
+      .layanan-card h3 {
+        color: #007bff;
+        margin-bottom: 10px;
+      }
+
+      /* ===== CTA ===== */
+      .cta {
+        background: linear-gradient(135deg, #007bff, #00aaff);
+        color: white;
+        text-align: center;
+        padding: 80px 30px;
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+        margin-top: 100px;
+      }
+
+      .cta h2 {
+        font-size: 2em;
+        margin-bottom: 15px;
+      }
+
+      .cta p {
+        font-size: 1.1em;
+        margin-bottom: 25px;
+      }
+
+      .btn-utama {
+        background: white;
+        color: #007bff;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn-utama:hover {
+        background: #dceeff;
+        transform: scale(1.07);
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: #003366;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+      }
+
+      /* ===== POPUP FORM ===== */
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 51, 102, 0.7);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 200;
+        backdrop-filter: blur(3px);
+      }
+
+      .popup-content {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 400px;
+        position: relative;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 0.3s ease;
+      }
+
+      .popup-content h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #003366;
+      }
+
+      .popup-content label {
+        display: block;
+        margin-bottom: 6px;
+        color: #003366;
+        font-weight: 500;
+      }
+
+      .popup-content input,
+      .popup-content select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      .popup-content input:focus,
+      .popup-content select:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 22px;
+        color: #007bff;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="logo">FIREZWIR</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="layanan.html">Produk</a></li>
+          <li><a href="tentang.html">Tentang</a></li>
+          <li><a href="#">Kontak</a></li>
+        </ul>
+      </nav>
+      <button class="btn-pesan">Pesan Sekarang</button>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-layanan">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>Layanan Percetakan Kami</h1>
+        <p>
+          Kami siap membantu segala kebutuhan cetak Anda — dari skala kecil
+          hingga besar.
+        </p>
+      </div>
+    </section>
+
+    <!-- LIST LAYANAN -->
+    <section class="daftar-layanan">
+      <h2>Cetak Desain Lengkap untuk Anda</h2>
+
+      <div class="layanan-container">
+        <div class="layanan-card">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1046/1046769.png"
+            alt="Brosur"
+          />
+          <h3>Cetak Brosur</h3>
+          <p>
+            Brosur promosi berkualitas tinggi dengan pilihan kertas dan
+            finishing beragam.
+          </p>
+        </div>
+
+        <div class="layanan-card">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2200/2200221.png"
+            alt="Kartu Nama"
+          />
+          <h3>Kartu Nama</h3>
+          <p>
+            Kartu nama profesional dengan hasil cetak presisi dan warna tajam.
+          </p>
+        </div>
+
+        <div class="layanan-card">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1046/1046747.png"
+            alt="Spanduk"
+          />
+          <h3>Spanduk & Banner</h3>
+          <p>
+            Cetak spanduk, banner, dan backdrop dengan bahan tahan cuaca dan
+            warna awet.
+          </p>
+        </div>
+
+        <div class="layanan-card">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3131/3131607.png"
+            alt="Undangan"
+          />
+          <h3>Undangan</h3>
+          <p>
+            Desain dan cetak undangan pernikahan, acara, hingga perusahaan
+            dengan gaya elegan.
+          </p>
+        </div>
+
+        <div class="layanan-card">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png"
+            alt="Poster"
+          />
+          <h3>Poster & Flyer</h3>
+          <p>
+            Hasil cetak tajam dan menarik untuk kebutuhan promosi dan kampanye
+            visual.
+          </p>
+        </div>
+
+        <div class="layanan-card">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1047/1047778.png"
+            alt="Kemasan"
+          />
+          <h3>Kemasan Produk</h3>
+          <p>
+            Desain kemasan profesional dengan bahan berkualitas untuk memperkuat
+            brand Anda.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta">
+      <h2>Anda punya pertanyaan?</h2>
+      <p>
+        Kami bantu wujudkan kebutuhan cetak Anda dengan kualitas terbaik dan
+        harga bersahabat.
+      </p>
+      <button class="btn-utama">Hubungi Kami</button>
+    </section>
+
+    <!-- POPUP FORM PEMESANAN -->
+    <div class="popup" id="popupForm">
+      <div class="popup-content">
+        <span class="close-btn" id="closePopup">&times;</span>
+        <h2>Form Pemesanan</h2>
+        <form id="formPesan">
+          <label>Nama Lengkap</label>
+          <input type="text" id="nama" required />
+
+          <label>Email</label>
+          <input type="email" id="email" required />
+
+          <label>No. HP</label>
+          <input type="tel" id="nohp" required />
+
+          <label>Ukuran Desain</label>
+          <select id="ukuran" required>
+            <option value="">-- Pilih Ukuran --</option>
+            <option>A4</option>
+            <option>A3</option>
+            <option>Brosur Lipat</option>
+            <option>Spanduk 2x1m</option>
+            <option>Custom</option>
+          </select>
+
+          <button type="submit" class="btn-utama">Bayar Sekarang</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2025 CiptaPrint. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+      // Ambil semua kartu layanan
+      const layananCards = document.querySelectorAll(".layanan-card");
+      const popup = document.getElementById("popupForm");
+      const closeBtn = document.getElementById("closePopup");
+      const formPesan = document.getElementById("formPesan");
+
+      // Klik kartu layanan → buka popup
+      layananCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          popup.style.display = "flex";
+        });
+      });
+
+      // Tutup popup
+      closeBtn.addEventListener("click", () => {
+        popup.style.display = "none";
+      });
+
+      // Klik luar popup → tutup
+      window.addEventListener("click", (e) => {
+        if (e.target === popup) popup.style.display = "none";
+      });
+
+      // Aksi submit form
+      formPesan.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert(
+          "Pesanan Anda telah diterima! Kami akan segera menghubungi Anda. 😊"
+        );
+        popup.style.display = "none";
+        formPesan.reset();
+      });
+    </script>
+  </body>
+</html>

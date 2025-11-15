@@ -1,0 +1,221 @@
+/* =========================
+   GLOBAL STYLE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom right, #0a3d62, #ffffff);
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+  background-color: rgba(10, 61, 98, 0.9);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #ffda79;
+}
+
+.btn-pesan {
+  background-color: #ffda79;
+  color: #0a3d62;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-pesan:hover {
+  background-color: #ffd24c;
+}
+
+/* =========================
+   KONTAK CONTAINER
+========================= */
+.kontak-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 80px 60px;
+  flex-wrap: wrap;
+}
+
+/* BOX FORM & INFO */
+.form-kontak,
+.info-kontak {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  flex: 1 1 400px;
+  max-width: 550px;
+  backdrop-filter: blur(4px);
+}
+
+.form-kontak h2,
+.info-kontak h2 {
+  color: #0a3d62;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   FORM STYLING
+========================= */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #0a3d62;
+  outline: none;
+}
+
+.btn-kirim {
+  background-color: #0a3d62;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-kirim:hover {
+  background-color: #144f82;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   INFO KONTAK
+========================= */
+.info-kontak p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.info-kontak .material-symbols-outlined {
+  color: #0a3d62;
+}
+
+.info-kontak h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: #0a3d62;
+}
+
+.sosmed {
+  display: flex;
+  gap: 15px;
+}
+
+.sosmed a {
+  text-decoration: none;
+  color: #0a3d62;
+  font-size: 24px;
+  transition: 0.3s;
+}
+
+.sosmed a:hover {
+  color: #ffda79;
+  transform: scale(1.1);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  background-color: rgba(10, 61, 98, 0.9);
+  color: white;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: 60px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .kontak-container {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .form-kontak,
+  .info-kontak {
+    max-width: 100%;
+  }
+
+  .btn-pesan {
+    width: 100%;
+  }
+}
